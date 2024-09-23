@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS User (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE,
+  name TEXT,
+  password TEXT,
+  address TEXT
+);
+
+CREATE TABLE IF NOT EXISTS Address (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER,
+  street TEXT,
+  city TEXT,
+  state TEXT,
+  zip TEXT,
+  FOREIGN KEY (user_id) REFERENCES User(id)
+);
